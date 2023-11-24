@@ -1,0 +1,42 @@
+﻿@model WebAmazon.Models.Color
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xóa Màu </h2>
+
+<h3>Bạn có chắc chắn muốn xóa nội dung này không?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.ColorName)*@
+            <h4>Tên Màu</h4>
+        </dt>
+
+        <dd>
+            <h5>@Html.DisplayFor(model => model.ColorName)</h5>  
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.RGB)*@
+            <h4>RGB</h4>
+        </dt>
+
+        <dd>
+            <h5> @Html.DisplayFor(model => model.RGB)</h5>  
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-outline-danger" /> |
+            @Html.ActionLink("Danh Sách Màu", "Index",null, new {@class="btn btn-outline-secondary"})
+        </div>
+    }
+</div>

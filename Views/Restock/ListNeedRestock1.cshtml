@@ -1,0 +1,58 @@
+﻿@model IEnumerable<WebAmazon.Models.ViewModel.ReStock>
+
+@{
+    ViewBag.Title = "ListNeedRestock1";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListNeedRestock1</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RemainQuantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameDecription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RemainQuantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameDecription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProDeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProDeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProDeID })
+        </td>
+    </tr>
+}
+
+</table>

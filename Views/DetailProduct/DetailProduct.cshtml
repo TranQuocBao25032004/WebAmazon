@@ -1,0 +1,200 @@
+﻿@model WebAmazon.Models.ViewModel.DetailProductVM
+
+@{
+    ViewBag.Title = "DetailProduct";
+    Layout = "~/Views/Shared/_ProductDetailLayout.cshtml";
+}
+<style>
+    .container {
+        display: flex;
+        padding-left:20%;
+    }
+    .probox{
+        position:sticky;
+        top:10px;
+        display:flex;
+        flex-direction:row;
+        border:1px solid white;
+        border-radius:8px;
+        background:white;
+        max-width:390px;
+        gap:5px;
+
+    }
+    .row1 {
+        padding-right:50px;
+    }
+    .row img {
+        max-width: 420px;
+        padding: 10px;
+        align-items: center;
+        border: 1px solid grey;
+        border-radius: 8px;
+        background: white;
+
+    }
+    .proInfo {
+        position: sticky;
+        top: 10px;
+       /* display: flex;*/
+        flex-direction: row;
+        border: 1px solid white;
+        border-radius: 8px;
+        background: white;
+        max-width: 400px;
+        font-size:24px;
+       /* padding: 10px 30px;*/
+       
+        
+    }
+    .col-lg-5{
+        padding-left:60px;
+    }
+</style>\
+
+<div class="container">
+    @Html.HiddenFor(model => model.ProDeID)
+    <div class="col-lg-4 probox">
+        <div class="row">
+            <img src="@Url.Content(Model.ProImage)" />
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div class="row1">
+            <h2 class="proName"> @Html.DisplayFor(model => model.ProName)</h2>
+       </div>
+        <div class="row proInfo">
+            @*<h2 class="proName">@Html.DisplayNameFor(model => model.ProName)</h2>*@
+            <p>
+                <span>Viewer :&nbsp;(@Html.DisplayNameFor(model => model.ViewQuantity))&nbsp;|&nbsp;</span>
+                <span>Sold :&nbsp;@Html.DisplayFor(model => model.SoldQuantity)</span>
+            </p>
+            <h4>Color :  @Html.DisplayFor(model => model.ColorName)</h4>
+        </div>
+        <div class="row relatedInfo">
+            <h2>San pham tuong tu</h2>
+            @*@Html.Partial("ProductByCategory",Model.RelatedProducts);*@
+        </div>
+        <div class="row supplierInfo">
+            <h2>Thong tin nha ban</h2>
+            <h3>@Html.DisplayFor(model => model.SupName)</h3>
+            <p> @Html.DisplayFor(model => model.Address)</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <a href="/ShoppingCart/AddToCart/"  class="btn btn-outline-secondary">Buy</a>
+    </div>
+
+    @*<dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RemainQuantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RemainQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoldQuantity)
+        </dt>
+
+        <dd>
+
+        </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.ViewQuantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProImage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProImage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameDecription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameDecription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameCate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameCate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SupID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SupName)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ColorID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ColorID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ColorName)
+        </dt>
+
+        <dd>
+
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RGB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RGB)
+        </dd>
+
+        </dl>*@
+</div>
+@*<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProDeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@

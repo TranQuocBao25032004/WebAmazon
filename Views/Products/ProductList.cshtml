@@ -1,0 +1,18 @@
+﻿@model  IEnumerable<WebAmazon.Models.ProDetail>
+
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<h2>SẢM PHẨM BÁN CHẠY</h2>
+@Html.Partial("PartialList", Model.OrderByDescending(p => p.SoldQuantity).Take(24).ToList())
+<hr />
+
+<h2>SẢM PHẨM BẠN QUAN TÂM NHẤT</h2>
+@Html.Partial("PartialList", Model.OrderByDescending(p => p.ViewQuantity).Take(24).ToList())
+<hr />
+
+<h2>SẢM PHẨM TỐT NHẤT</h2>
+@Html.Partial("PartialList", Model.OrderBy(p => p.Price).Take(24).ToList())
+<hr />

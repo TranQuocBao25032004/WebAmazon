@@ -1,0 +1,90 @@
+﻿@model WebAmazon.Models.ProDetail
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Price)*@
+            <h4>Đơn Giá</h4>
+        </dt>
+
+        <dd>
+            <h5>@Html.DisplayFor(model => model.Price)</h5>
+            
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.RemainQuantity)*@
+            <h4>Số lượng tồn Kho </h4>
+        </dt>
+
+        <dd>
+            <h5> @Html.DisplayFor(model => model.RemainQuantity)</h5>
+           
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.SoldQuantity)*@
+            <h4>Đã Bán</h4>
+        </dt>
+
+        <dd>
+            <h5>  @Html.DisplayFor(model => model.SoldQuantity)</h5>
+          
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.ViewQuantity)*@
+            <h4>Lượt xem </h4>
+        </dt>
+
+        <dd>
+            <h5>@Html.DisplayFor(model => model.ViewQuantity)</h5>
+            
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Color.ColorName)*@
+            <h4>Màu</h4>
+        </dt>
+
+        <dd>
+            <h5> @Html.DisplayFor(model => model.Color.ColorName)</h5>
+           
+        </dd>
+
+        <dt>
+            @*Html.DisplayNameFor(model => model.Product.ProName)*@
+            <h4>Tên sản phẩm </h4>
+           
+        </dt>
+
+        <dd>
+            <h5>@Html.DisplayFor(model => model.Product.ProName)</h5>
+            
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Supplier.SupName)*@
+            <h4>Nhà cung cấp</h4>
+        </dt>
+
+        <dd>
+            <h5> @Html.DisplayFor(model => model.Supplier.SupName)</h5>
+           
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.ProDeID },new {@class= "btn btn-outline-success"}) |
+    @Html.ActionLink("Danh Sách", "Index", null, new {@class="btn btn-outline-secondary"})
+</p>

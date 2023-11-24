@@ -1,0 +1,27 @@
+﻿@model  IEnumerable< WebAmazon.Models.ProDetail>
+
+@{
+    ViewBag.Title = "SearchOption";
+    Layout = "~/Views/Shared/_HeadPhoneLayout.cshtml";
+}
+
+<h2>SearchOption</h2>
+<text>Tu</text> <input type="number" name="min" />
+<text>Den</text> <input type="number" name="max" />
+<input type="submit" value="Search" />
+<div class="container">
+    <div class="row">
+        @foreach(var pro in Model)
+            {
+                <div class="col-sm-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card-pro">
+                        <p>@Html.DisplayFor(model => pro.Product.ProName ) </p>
+                        <img src="@Url.Content(pro.Product.ProImage)" height="150" width="150" />
+                        <p>@Html.DisplayFor(model => pro.Price) </p>
+                        <a href="/ShoppingCart/AddToCart/@pro.ProID" class="btn btn-default">Buy</a>
+                    </div>
+                </div>
+            }
+    </div>
+</div>
+

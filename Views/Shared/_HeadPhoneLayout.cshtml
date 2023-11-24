@@ -1,0 +1,638 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link href="~/Content/footerStyle.css" rel="stylesheet" />
+    <link href="~/Content/header.css" rel="stylesheet" />
+
+    <style>
+       .middle-content{
+           display:flex;
+           max-width:max-content;
+       }
+        html {
+            scroll-behavior: smooth;
+        }
+
+        b{
+            text-decoration: none;
+            color: #fff;
+        }
+
+            b:hover {
+                color: #ddd;
+            }
+
+        header {
+            width: 100%;
+            background-color: black;
+        }
+
+        .navbar1 {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            color: #ffffff;
+            margin: 0 auto;
+        }
+
+        .nav-logo img {
+            width: 128px;
+            height: 58px;
+        }
+
+        .address {
+            margin-right: 10px;
+        }
+
+        .fm-nav-logo {
+            margin: 10px;
+        }
+
+        .address .deliver {
+            margin-left: 30px;
+            font-size: 0.75rem;
+            color: #ccc;
+        }
+
+        .address .map-icon {
+            display: flex;
+            align-items: center;
+        }
+
+
+        .nav-search {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            height: 40px;
+            border-radius: 4px;
+            padding-right: 10px;
+        }
+
+        .select-search {
+            background: #f3f3f3;
+            width: 40px;
+            text-align: center;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            border: none;
+        }
+
+        .search-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            padding-left: 10px;
+            margin: 0 auto;
+        }
+
+        .search-icon {
+            max-width: 45px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            background-color: aqua;
+            color: #000;
+            cursor: pointer;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+        .sign-in{
+            text-decoration:none;
+        }
+        .sign-in p,
+        .returns p {
+            font-size: 0.75rem;
+        }
+
+        .sign-in,
+        .returns span {
+            font-size: 0.875rem;
+            font-weight: 600;
+            width: 175px;
+        }
+
+        .returns {
+            width: 120px;
+            padding: 5px;
+        }
+
+        .cart {
+            display: flex;
+            padding-right: 20px;
+        }
+
+            .cart .cart-icon {
+                font-size: 2.5rem
+            }
+
+            .cart p {
+                margin-top: 20px;
+                font-weight: 500;
+            }
+
+        .banner {
+            padding: 10px 20px;
+            background: #222f3d;
+            color: #fff;
+            font-size: 0.875rem;
+        }
+
+        .banner-content {
+            margin: 0 auto;
+            max-width: 1280px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-left: 50px;
+        }
+
+        .panel {
+            max-width: 1280px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+            .panel span {
+                margin-right: 7px;
+            }
+
+        .links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 15px;
+            flex-grow: 1;
+            margin-left: 30px;
+        }
+
+            .links b {
+                padding: 10px 0;
+            }
+
+        .deals b {
+            font-size: 0.9rem;
+            font-weight: 500;
+            white-space: nowrap;
+            display: flex;
+        }
+        ul.copy.text-center {
+            display:inline-flex;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar1">
+            <div class="nav-logo">
+                <a href="http://localhost:60800/Products/ProductList"><img src="https://pbs.twimg.com/media/FaDbDJqWQAA4Uie?format=jpg&name=large" alt="logo" class="fm-nav-logo"></a>
+            </div>
+            <div class="address">
+                <b href="#" class="deliver">Deliver</b>
+                <div class="map-icon">
+                    <span class="material-symbols-outlined">location_on</span>
+                    <b href="#" class="location">VietNam</b>
+                </div>
+            </div>
+            <div class="nav-search">
+                <select class="select-search">
+                    <option>All</option>
+                    <option>All Categories</option>
+                    <option>Amazon Devices</option>
+                </select>
+                <input type="text" placeholder="Search Amazon" class="search-input">
+                <div class="search-icon">
+                    <span class="material-symbols-outlined">search</span>
+                </div>
+            </div>
+            <div class="sign-in">
+
+                <a href="http://localhost:60800/Login/Login" style="text-decoration:none">
+
+                    <span style="text-decoration:none;color:white;">Account &amp; Lists</span>
+                </a>
+                @if (Session["CusName"] != null)
+                {
+                    <p>@Session["CusName"]</p>
+                }
+                else
+                {
+                    <p>Hello, sign in</p>
+                }
+            </div>
+
+            <div class="returns">
+                <b href="#">
+                    <p>Returns</p>
+                    <span>&amp; Orders</span>
+                </b>
+            </div>
+            <div class="cart">
+                <a href="http://localhost:60800/ShoppingCart/ShowCart">
+                    <span class="material-symbols-outlined cart-icon" style="color:white;">shopping_cart</span>
+                </a>
+               
+                @Html.Action("BagCart", "ShoppingCart")
+                <p>Cart</p>
+            </div>
+        </nav>
+
+        <div class="banner">
+            <div class="banner-content">
+                <div class="panel">
+                    <div id="overlay" onclick="closeNav()"></div>
+
+                    <div id="closeBtn" onclick="closeNav()">&times;</div>
+                    <div class="sidenav" id="mySidenav">
+                        <div class="sidenavHeader">
+                            <i class="fas fa-user-circle"></i> Hello, Sign In
+
+                        </div>
+                        <!--Below SideNavHeader-->
+                        <div id="main-container">
+                            <div class="sidenavContentHeader">Trending</div>
+                            <c href="#"><div class="sidenavContent">Best Sellers</div></c>
+                            <c href="#"><div class="sidenavContent">New Releases</div></c>
+                            <c href="#"><div class="sidenavContent">Movers and Shakers</div></c>
+                            <hr />
+                            <div class="sidenavContentHeader">Digital Content And Devices</div>
+                            <c href="#" onclick="openPrimeVideo()">
+                                <div class="sidenavRow">
+                                    <div>Prime Video</div>
+                                    <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                </div>
+                            </c>
+                            <c href="#" onclick="openAmazonMusic()">
+                                <div class="sidenavRow">
+                                    <div>Amazon Music</div>
+                                    <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                </div>
+                            </c>
+                            <c href="#">
+                                <div class="sidenavRow">
+                                    <div>Apps for Android</div>
+                                    <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                </div>
+                            </c>
+                            <c href="#">
+                                <div class="sidenavRow">
+                                    <div>Echo, Alexa & Smart Home</div>
+                                    <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                </div>
+                            </c>
+                            <c href="#">
+                                <div class="sidenavRow">
+                                    <div>Fire TV</div>
+                                    <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                </div>
+                            </c>
+                            <c href="#">
+                                <div class="sidenavRow">
+                                    <div>Fire Tablets</div>
+                                    <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                </div>
+                            </c>
+                            <c href="#">
+                                <div class="sidenavRow">
+                                    <div>Kindle E-readers & Books</div>
+                                    <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                </div>
+                            </c>
+                            <c href="#">
+                                <div class="sidenavRow">
+                                    <div>Audible Audiobooks</div>
+                                    <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                </div>
+                            </c>
+                            <hr />
+                            <div class="sidenavContentHeader">Shop By Department</div>
+                            <c href="#">
+                                <div class="sidenavRow">
+                                    <div>Amazon Fresh</div>
+                                    <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                </div>
+                            </c>
+                            <c href="#">
+                                <div class="sidenavRow">
+                                    <div>Books</div>
+                                    <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                </div>
+                            </c>
+                            <c href="#">
+                                <div class="sidenavRow">
+                                    <div>Films, TV, Music & Games</div>
+                                    <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                </div>
+                            </c>
+                            <c href="#">
+                                <div class="sidenavRow">
+                                    <div>Electronics & Computers</div>
+                                    <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                </div>
+                            </c>
+                            <div class="sidenavContainer" id="firstContainer">
+                                <hr />
+                                <c href="#">
+                                    <div class="sidenavRow">
+                                        <div>Home, Garden, Pets & DIY</div>
+                                        <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                    </div>
+                                </c>
+                                <c href="#">
+                                    <div class="sidenavRow">
+                                        <div>Toys, Children & Baby</div>
+                                        <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                    </div>
+                                </c>
+                                <c href="#">
+                                    <div class="sidenavRow">
+                                        <div>Clothes, Shoes, Jewellery & Accessories</div>
+                                        <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                    </div>
+                                </c>
+                                <c href="#">
+                                    <div class="sidenavRow">
+                                        <div>Sports & Outdoors</div>
+                                        <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                    </div>
+                                </c>
+                                <c href="#">
+                                    <div class="sidenavRow">
+                                        <div>Food & Grocery</div>
+                                        <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                    </div>
+                                </c>
+                                <c href="#">
+                                    <div class="sidenavRow">
+                                        <div>Health & Beauty</div>
+                                        <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                    </div>
+                                </c>
+                                <c href="#">
+                                    <div class="sidenavRow">
+                                        <div>Car & Motorbike</div>
+                                        <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                    </div>
+                                </c>
+                                <c href="#">
+                                    <div class="sidenavRow">
+                                        <div>Business, Industry & Science</div>
+                                        <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                    </div>
+                                </c>
+                            </div>
+                            <div class="sidenavRowDropdown"
+                                 id="firstDropDown"
+                                 onclick="firstDropDown()">
+                                <div>See All</div>
+                                <i class="fas fa-chevron-down"
+                                   style="color: #8e9090; margin-left: 10px">
+                                </i>
+                            </div>
+                            <hr />
+                            <div class="sidenavContentHeader">Programs & Features</div>
+                            <c href="#">
+                                <div class="sidenavRow">
+                                    <div>Gift Cards & Top Up</div>
+                                    <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                </div>
+                            </c>
+                            <c href="#">
+                                <div class="sidenavRow">
+                                    <div>Find a Gift</div>
+                                    <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                </div>
+                            </c>
+                            <c href="#">
+                                <div class="sidenavRow">
+                                    <div>Handmade</div>
+                                    <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                </div>
+                            </c>
+                            <c href="#">
+                                <div class="sidenavRow">
+                                    <div>Amazon Launchpad</div>
+                                    <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                </div>
+                            </c>
+                            <!--Beginning of second sidenavContainer-->
+                            <div class="sidenavContainer" id="secondContainer">
+                                <hr />
+                                <c href="#">
+                                    <div class="sidenavContent">Made In Italy</div>
+                                </c>
+                                <c href="#">
+                                    <div class="sidenavRow">
+                                        <div>Home Services</div>
+                                        <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                    </div>
+                                </c>
+                                <c href="#">
+                                    <div class="sidenavContent">Prime Wardrobe</div>
+                                </c>
+                                <c href="#">
+                                    <div class="sidenavRow">
+                                        <div>Amazon Business</div>
+                                        <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+                                    </div>
+                                </c>
+                                <c href="#">
+                                    <div class="sidenavContent">Amazon Second Chance</div>
+                                </c>
+                            </div>
+                            <div class="sidenavRowDropdown"
+                                 id="secondDropDown"
+                                 onclick="secondDropDown()">
+                                <div>See All</div>
+                                <i class="fas fa-chevron-down"
+                                   style="color: #8e9090; margin-left: 10px">
+                                </i>
+                            </div>
+                            <hr />
+                            <div class="sidenavContentHeader">Help & Settings</div>
+                            <c href="#"><div class="sidenavContent">Your Account</div></c>
+                            <c href="#"><div class="sidenavContent">Currency Settings</div></c>
+                            <c href="#"><div class="sidenavContent">Customer Service</div></c>
+                            <c href="#"><div class="sidenavContent">Sign In</div></c>
+                            <div style="height: 50px"></div>
+                        </div>
+                        <!--End of first container-->
+
+                        <div id="sub-container">
+                            <div id="mainMenu">
+                                <i class="fas fa-chevron-left" style="color: #8e9090"></i> MAIN MENU
+                            </div>
+                            <hr />
+                            <div id="sub-container-content">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Not Sidenav-->
+                    <div onclick="openNav()" style="font-size: 20px;
+                           cursor: pointer;
+                           display:flex;
+                           ">
+                        &#9776;All
+                        <div>
+                        </div>
+                    </div>
+                </div>
+                <div class="links">
+                    <p>Today's Deals</p>
+                    <p>Customer Service</p>
+                    <p>Registry</p>
+                    <p>Gift Cards</p>
+                    <p>Sell</p>
+                </div>
+            </div>
+        </div>
+
+
+    </header>
+    <div class="main-content1">
+        <div class="middle-content">
+            <div class="div-left" style="width: 25%;"> @{Html.RenderAction("Index", "Style");}</div>
+            <div class="div-content">@RenderBody()</div>
+        </div>
+        
+    </div>
+    <footer>
+        <a href="#" class="footer-title">
+            Back to top
+        </a>
+        <div class="middle">
+            <div class="center">
+                <ul>
+                    <li><h3>Get to Know Us</h3></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">About Amazon</a></li>
+                    <li><a href="#">Investor Relations</a></li>
+                    <li><a href="#">Amazon Devices</a></li>
+                </ul>
+                <ul>
+                    <li><h3>Make Money with Us</h3></li>
+                    <li><a href="#">Sell on Amazon</a></li>
+                    <li><a href="#">Sell Your Services on Amazon</a></li>
+                    <li><a href="#">Sell on Amazon Business</a></li>
+                    <li><a href="#">Sell Your Apps on Amazon</a></li>
+                    <li><a href="#">Become an Affiliate</a></li>
+                    <li><a href="#">Advertise Your Products</a></li>
+                    <li><a href="#">Self-Publish with Us</a></li>
+                    <li><a href="#">Become an Amazon Vendor</a></li>
+                    <li><a href="#">Sell Your Subscription on Amazon</a></li>
+                    <li><a href="#">› See all</a></li>
+                </ul>
+                <ul>
+                    <li><h3>Amazon Payment Products</h3></li>
+                    <li><a href="#">Amazon Rewards Visa Signature Cards</a></li>
+                    <li><a href="#">Amazon.com Store Card</a></li>
+                    <li><a href="#">Amazon.com Corporate Credit Line</a></li>
+                    <li><a href="#">Shop with Points</a></li>
+                    <li><a href="#">Credit Card Marketplace</a></li>
+                    <li><a href="#">Reload Your Balance</a></li>
+                    <li><a href="#">Amazon Currency Converter</a></li>
+                </ul>
+                <ul>
+                    <li><h3>Let Us Help You</h3></li>
+                    <li><a href="#">Your Account</a></li>
+                    <li><a href="#">Your Orders</a></li>
+                    <li><a href="#">Shipping Rates &amp; Policies</a></li>
+                    <li><a href="#">Amazon Prime</a></li>
+                    <li><a href="#">Returns &amp; Replacements</a></li>
+                    <li><a href="#">Manage Your Content and Devices</a></li>
+                    <li><a href="#">Amazon Assistant</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </div>
+
+            <ul class="copy text-center">
+                <li><a href="#" class="logo"></a></li>
+                <li><a href="#" class="select"><i class="fa fa-globe" aria-hidden="true"></i> VietNamese</a></li>
+                <li><a href="#" class="select"><i class="flag-icon-us"></i>VietName</a></li>
+            </ul>
+        </div>
+        <div class="bottom">
+            <div class="center">
+                <ul>
+                    <li><a href="#">Amazon Music<br /><span>Stream millions<br> of songs</span></a></li>
+                    <li><a href="#">AmazonFresh<br /><span>Groceries &amp; More<br> Right To Your Door</span></a></li>
+                    <li><a href="#">Amazon Web Services<br /><span>Scalable Cloud<br> Computing Services</span></a></li>
+                    <li><a href="#">East Dane<br /><span>Designer Men's<br> Fashion</span></a></li>
+                    <li><a href="#">Prime Now<br /><span>FREE 2-Hour Delivery<br> on Everyday Items</span></a></li>
+                </ul>
+
+                <ul>
+                    <li><a href="#">Amazon Drive<br /><span>Cloud storage<br> from Amazon</span></a></li>
+                    <li><a href="#">AmazonGlobal<br /><span>Ship Orders<br> Internationally</span></a></li>
+                    <li><a href="#">Audible<br /><span>Download<br> Audio Books</span></a></li>
+                    <li><a href="#">Fabric<br /><span>Sewing, Quilting<br> &amp; Knitting</span></a></li>
+                    <li><a href="#">Prime Photos<br /><span>Unlimited Photo Storage<br> Free With Prime</span></a></li>
+                    <li><a href="#">Woot!<br /><span>Deals and <br> Shenanigans</span></a></li>
+                </ul>
+
+                <ul>
+                    <li><a href="#">6pm<br /><span>Score deals<br> on fashion brands</span></a></li>
+                    <li><a href="#">Home Services<br /><span>Handpicked Pros<br> Happiness Guarantee</span></a></li>
+                    <li><a href="#">Book Depository<br /><span>Books With Free<br> Delivery Worldwide</span></a></li>
+                    <li><a href="#">Goodreads<br /><span>Book reviews<br> &amp; recommendations</span></a></li>
+                    <li><a href="#">Shopbop<br /><span>Designer<br> Fashion Brands</span></a></li>
+                    <li><a href="#">Zappos<br /><span>Shoes &amp;<br> Clothing</span></a></li>
+                </ul>
+
+                <ul>
+                    <li><a href="#">AbeBooks<br /><span>Books, art<br> &amp; collectibles</span></a></li>
+                    <li><a href="#">Amazon Inspire<br /><span>Free Digital Educational<br>  Resources</span></a></li>
+                    <li><a href="#">Box Office Mojo<br /><span>Find Movie<br> Box Office Data</span></a></li>
+                    <li><a href="#">IMDb<br /><span>Movies, TV<br> &amp; Celebrities</span></a></li>
+                    <li><a href="#">TenMarks.com<br /><span>Math Activities<br> for Kids &amp; Schools</span></a></li>
+                    <li><a href="#">Souq.com<br /><span>Shop Online in<br> the Middle East</span></a></li>
+                </ul>
+
+                <ul>
+                    <li><a href="#">ACX <br /><span>Audiobook Publishing<br> Made Easy</span></a></li>
+                    <li><a href="#">Amazon Rapids<br /><span>Fun stories for<br>  kids on the go</span></a></li>
+                    <li><a href="#">ComiXology<br /><span>Thousands of<br> Digital Comics</span></a></li>
+                    <li><a href="#">IMDbPro<br /><span>Get Info Entertainment<br> Professionals Need</span></a></li>
+                    <li><a href="#">Warehouse Deals<br /><span>Open-Box<br> Discounts</span></a></li>
+                    <li><a href="#">Subscribe with Amazon<br /><span>Discover &amp; try<br> subscription services</span></a></li>
+                </ul>
+
+                <ul>
+                    <li><a href="#">Alexa<br /><span>Actionable Analytics<br> for the Web</span></a></li>
+                    <li><a href="#">Amazon Restaurants<br /><span>Food delivery from<br> local restaurants</span></a></li>
+                    <li><a href="#">CreateSpace<br /><span>Indie Print Publishing<br> Made Easy</span></a></li>
+                    <li><a href="#">Junglee.com<br /><span>Shop Online<br> in India</span></a></li>
+                    <li><a href="#">Whispercast<br /><span>Discover &amp; Distribute<br> Digital Content</span></a></li>
+                </ul>
+
+                <ul>
+                    <li><a href="#">Amazon Business<br /><span>Everything For<br> Your Business</span></a></li>
+                    <li><a href="#">Amazon Video Direct<br /><span>Video Distribution<br> Made Easy</span></a></li>
+                    <li><a href="#">DPReview<br /><span>Digital<br> Photography</span></a></li>
+                    <li><a href="#">Kindle Direct Publishing<br /><span>Indie Digital Publishing<br> Made Easy</span></a></li>
+                    <li><a href="#">Withoutabox<br /><span>Submit to<br> Film Festivals</span></a></li>
+                </ul>
+
+                <ul class="copy text-center">
+                    <li><a href="#">Conditions of Use</a></li>
+                    <li><a href="#">Privacy Notice</a></li>
+                    <li><a href="#">Interest-Based Ads</a></li>
+                    <li>&copy; 1996-2017, Amazon.com, Inc. or its affiliates</li>
+                </ul>
+            </div>
+        </div>
+
+    </footer>
+</body>
+</html>

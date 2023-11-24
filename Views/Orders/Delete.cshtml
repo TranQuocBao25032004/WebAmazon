@@ -1,0 +1,56 @@
+﻿@model WebAmazon.Models.Order
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xóa đơn hàng</h2>
+
+<h3>Bạn có chắc chắn muốn xóa nội dung này không?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressDeliverry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressDeliverry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.CusPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer.CusPassword)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-outline-danger" /> |
+            @Html.ActionLink("Danh Sách", "Index", null, new {@class="btn btn-outline-secondary"})
+        </div>
+    }
+</div>

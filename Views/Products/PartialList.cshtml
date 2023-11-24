@@ -1,0 +1,43 @@
+﻿@model IEnumerable<WebAmazon.Models.ProDetail>
+<style>
+    .row {
+        display: flex;
+        margin-bottom:20px;
+    }
+    .container1 {
+        position: relative;
+        max-width: fit-content;
+        margin: 0 auto;
+
+    }
+    .col-sm-12.col-sm-6.col-md-4.col-lg-3 {
+        padding-right: 20px;
+        
+    }
+    .card-pro{
+        width:150px;
+    }
+</style>
+<div class="container1">
+    <div class="row">
+         @foreach (var item in Model) {
+             <div class="col-sm-12 col-sm-6 col-md-4 col-lg-3">
+                 <div class="card-pro">
+                     <p><img src="@Url.Content(item.Product.ProImage)" height="150"</p>
+                     <p class="prodName">  @Html.DisplayFor(modelItem => item.Product.ProName)</p>
+                     <p>
+                         <span class="view"> @Html.DisplayFor(modelItem => item.ViewQuantity) lượt xem&nbsp;| &nbsp;</span>
+                         <span class="sold">Đã bán @Html.DisplayFor(modelItem => item.SoldQuantity)</span>
+                     </p>
+                     <p class="price">  @Html.DisplayFor(modelItem => item.Price)</p>
+                     <hr />
+                     <p class="shop">Shop : &nbsp; @Html.DisplayFor(modelItem => item.Supplier.SupName) </p>
+                     <a href="/ShoppingCart/AddToCart/@item.ProID">
+                     <p><input type="submit" value="Buy" /></p>
+                     </a>
+                 </div>
+             </div>
+         }
+    </div>
+
+</div>

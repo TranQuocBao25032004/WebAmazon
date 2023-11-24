@@ -1,0 +1,38 @@
+﻿@model WebAmazon.Models.User
+
+@{
+    ViewBag.Title = "UserLogin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("AuthenUser", "Users", FormMethod.Post))
+            {
+               <table id="table">
+                   <tr>
+                       <td>@Html.DisplayNameFor(m => m.Username) </td>
+                       <td>@Html.TextBoxFor(m => m.Username)</td>
+                       <td>@Html.ValidationMessageFor(m => m.Username)</td>
+                       <td>
+                           @if (ViewBag.ErrorName != null)
+                           {<h5>@ViewBag.ErrorName</h5>}
+                   </td>
+
+               </tr>
+               <tr>
+                   <th>@Html.DisplayNameFor(m => m.Password)</th>
+                   <td>@Html.PasswordFor(m => m.Password)</td>
+                   <td>@Html.ValidationMessageFor(m => m.Password)</td>
+                   <td>
+                       @if (ViewBag.ErrorPass != null)
+                       {<h5>@ViewBag.ErrorPass</h5>}
+               </td>
+               </tr>
+               <tr>
+                   <td colspan="3">
+                       <input class="btn btn-success" id="button" type="submit" value="Login" />
+
+                   </td>
+               </tr>
+               </table>
+            }
+
+

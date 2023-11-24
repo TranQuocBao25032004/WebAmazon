@@ -1,0 +1,26 @@
+﻿@model  IEnumerable<WebAmazon.Models.Category>
+<style>
+    .fm-link {
+        text-decoration: none;
+        font-size: 20px;
+        text-align: center;
+        color: black;
+    }
+</style>
+<h4 style="font-family:'Berlin Sans FB'">Featured Brands</h4>
+@foreach (var style in Model)
+{
+    @*<h2>
+            @Html.ActionLink(style.NameCate, "Index", "ProductClient", new { style = style.CatID }, new { @class = "fm-link" })
+        </h2>*@
+    @*@Html.CheckBox("style.NameCate", new { onchange = "location.href = '@Url.Action(\"Index\"ProductClient\", new { style = style.CatID })'" })*@
+    <h2>
+        <input type="checkbox" onclick="location.href='@Url.Action("Index", "ProductClient", new { style = style.CatID })'" class="fm-link" />
+        @Html.ActionLink(style.NameCate, "Index", "ProductClient", new { style = style.CatID }, new { @class = "fm-link" })
+    </h2>
+
+}
+<h4 style="font-family:'Berlin Sans FB'">
+    <a href="/ProDetails/SearchOption" class="btn btn-deafault">Price</a>
+</h4>
+

@@ -1,0 +1,57 @@
+﻿@model WebAmazon.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Chi Tiết Thông Tin Khách Hàng</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.CusPassword)*@
+            <h4>Mật Khẩu</h4>
+        </dt>
+
+        <dd>
+            <h5> @Html.DisplayFor(model => model.CusPassword)</h5> 
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.CusName)*@
+            <h4>Tên Khách Hàng </h4>
+        </dt>
+
+        <dd>
+            <h5> @Html.DisplayFor(model => model.CusName)</h5>
+           
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.CusEmail)*@
+            <h4>Email</h4>
+        </dt>
+
+        <dd>
+            <h5> @Html.DisplayFor(model => model.CusEmail)</h5>
+           
+        </dd>
+        <dt>
+            @*@Html.DisplayNameFor(model => model.CusPhone)*@
+            <h4>Số Điện Thoại</h4>
+        </dt>
+
+        <dd>
+            <h5> @Html.DisplayFor(model => model.CusPhone)</h5>
+           
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa đổi", "Edit", new { id = Model.CusPhone },new {@class="btn btn-outline-info"}) |
+    @Html.ActionLink("Danh Sách", "Index",null,new {@class="btn btn-outline-secondary"})
+</p>

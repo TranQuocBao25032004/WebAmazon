@@ -1,0 +1,43 @@
+﻿@model IEnumerable<WebAmazon.Models.Color>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh Sách Màu</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.ColorName)*@
+            <h3>Tên màu</h3>
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.RGB)*@
+            <h3>RGB</h3>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ColorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RGB)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa đổi", "Edit", new { id=item.ColorID }, new {@class="btn btn-outline-success"}) |
+            @*@Html.ActionLink("Chi tiết", "Details", new { id=item.ColorID },new {@class="btn btn-outline-primary"}) |*@
+            @Html.ActionLink("Xóa bỏ", "Delete", new { id=item.ColorID }, new {@class="btn btn-outline-danger"})
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    @Html.ActionLink("Tạo màu mới", "Create", null, new {@class="btn btn-outline-secondary"})
+</p>

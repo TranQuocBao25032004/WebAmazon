@@ -1,0 +1,66 @@
+﻿@model WebAmazon.Models.Customer
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<style>
+    .singleTextBox {
+        width: 400px;
+        height: 40px;
+    }
+
+    .font {
+        font-family: 'Gill Sans',sans-serif;
+        font-size: 30px;
+        font-weight: bold;
+    }
+</style>
+<div class="font">Sign In</div>
+@using (Html.BeginForm("AuthenLogin", "Login", FormMethod.Post))
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.CusName)
+            </th>
+        <tr>
+            <th>
+                @Html.TextBoxFor(m => m.CusName, new { @class = "singleTextBox" })
+            </th>
+            <td>
+                @Html.ValidationMessageFor(m => m.CusName)
+                @if (ViewBag.ErrorName != null)
+                {
+                    <h5>@ViewBag.ErrorName</h5>
+                }
+            </td>
+        </tr>
+
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.CusPassword)</th>
+        <tr>
+            <th>@Html.PasswordFor(m => m.CusPassword, new { @class = "singleTextBox" })</th>
+            <td>
+                @Html.ValidationMessageFor(m => m.CusPassword)
+                @if (ViewBag.ErrorPass != null)
+                {
+                    <h5>@ViewBag.ErrorPass</h5>
+                }
+            </td>
+        </tr>
+
+
+        </tr>
+        <td colspan="3">
+            <input type="submit" value="Login" class="btn btn-warning" />
+        </td>
+    </table>
+}
+<p class="keep-sign-in">By continuing, you agree to Amazon's <a href="#">Conditions of Use and Privacy Notice.</a></p>
+<a href="http://localhost:60800/Login/Register">
+    <button type="button" class="btn btn-warning" id="grey-button">Create your Amazon account</button>
+</a>
+

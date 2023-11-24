@@ -1,0 +1,68 @@
+﻿@model WebAmazon.Models.Customer
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<h2>Register</h2>
+@using (Html.BeginForm("AuthenRegister", "Login", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.CusName)</th>
+            <th>@Html.TextBoxFor(m => m.CusName)</th>
+            <td>
+                @Html.ValidationMessageFor(m => m.CusName)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.CusPassword)</th>
+            <th>@Html.PasswordFor(m => m.CusPassword)</th>
+            <td>
+                @Html.ValidationMessageFor(m => m.CusPassword)
+
+            </td>
+
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.Repass)</th>
+            <th>@Html.PasswordFor(m => m.Repass)</th>
+            <td>
+                @Html.ValidationMessageFor(m => m.Repass)
+
+            </td>
+
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.CusPhone)</th>
+            <th>@Html.PasswordFor(m => m.CusPhone)</th>
+            <td>
+                @Html.ValidationMessageFor(m => m.CusPhone)
+
+            </td>
+
+        </tr>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.CusEmail)</th>
+            <th>@Html.TextBoxFor(m => m.CusEmail)</th>
+            <td>
+                @Html.ValidationMessageFor(m => m.CusEmail)
+
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="3">
+                <input type="submit" value="Register" class="btn btn-success" />
+                <a href="http://localhost:60800/Login/Login" style="text-decoration:none">
+                    <input type="button" value=" Quay lại Login" class="btn btn-warning" />
+                    </a>
+            </td>
+            
+        </tr>
+    </table>
+
+}
+
+

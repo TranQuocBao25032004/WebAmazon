@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CheckOut_Sucess</title>
+    <style>
+        .fm-link{
+            text-decoration:none;
+            color:gray;
+        }
+    </style>
+</head>
+<body style="text-align:center">
+    <h2>Thanh toán thành công</h2>
+    <h4>Đơn hàng của bạn đã được gửi đến Shop .Bạn sẽ nhận được hàng vào 2-3 ngày .Cảm ơn</h4>
+    @Html.ActionLink("Tiếp tục mua hàng...","Index", "ProductClient",new {area =""}, new {@class="fm-link"})
+</body>
+</html>

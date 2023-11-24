@@ -1,0 +1,61 @@
+﻿@model WebAmazon.Models.OrderDetail
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xóa Thông tin chi tiết đơn hàng</h2>
+
+<h3>Bạn có chắc chắn muốn xóa nội dung này không?</h3>
+<div>
+    <h4>OrderDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Quantity)*@
+            <h4>Số Lượng</h4>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.UnitPrice)*@
+            <h4>Đơn Giá</h4>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Order.CusPhone)*@
+            <h4>Số Điện Thoại</h4>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order.CusPhone)
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.ProDetail.ProDeID)*@
+            <h4>Mã chi tiết</h4>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProDetail.ProDeID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

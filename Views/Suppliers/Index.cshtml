@@ -1,0 +1,41 @@
+﻿@model IEnumerable<WebAmazon.Models.Supplier>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh Sách Nhà Cung Cấp</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SupName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SupName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa ", "Edit", new { id=item.SupID }, new {@class="btn btn-outline-success"}) |
+            @*@Html.ActionLink("Chi tiết", "Details", new { id=item.SupID }, new { @class = "btn btn-outline-primary" }) |*@
+            @Html.ActionLink("Xóa", "Delete", new { id=item.SupID }, new { @class = "btn btn-outline-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+<p>
+    @Html.ActionLink("Create New", "Create", null, new {@class="btn btn-outline-secondary"})
+</p>

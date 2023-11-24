@@ -1,0 +1,33 @@
+﻿@model WebAmazon.Models.Category
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xóa bỏ sản phẩm</h2>
+
+<h3>Bạn có chắc chắn muốn xóa nội dung này không?</h3>
+<div>
+    <h4> Loại</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <h3>@*@Html.DisplayNameFor(model => model.NameCate)*@ Tên loại :</h3>
+        </dt>
+
+        <dd>
+            <h4>@Html.DisplayFor(model => model.NameCate)</h4> 
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-outline-danger" /> |
+            @Html.ActionLink("Danh sách", "Index",null, new {@class= "btn btn-outline-secondary"})
+        </div>
+    }
+</div>

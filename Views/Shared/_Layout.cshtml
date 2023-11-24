@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .navbar-brand {
+            font-size: 15px;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .layout {
+            padding-right: 30px;
+        }
+
+        .head-admin {
+            width: 100%;
+            height: 20%;
+            color: white;
+            justify-content: center;
+        }
+
+        .main {
+            display: flex;
+        }
+
+        .side-nav {
+            list-style: none;
+        }
+        .form-group{
+            background-color:lightblue;
+            color:black;
+            
+        }
+    </style>
+    <script>
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+    </script>
+</head>
+<body @*style="text-decoration:none;"*@>
+    @if (Session["Name"] != null)
+    { <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+    <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+    <label>Danh mục :</label>
+    <div class="form-group">
+
+
+        <a href="#" class="w3-bar-item w3-button">@Html.ActionLink("Màu", "Index", "Colors", new { area = "" }, new { @class = "nav-link" })</a>
+        <a href="#" class="w3-bar-item w3-button">@Html.ActionLink("Hãng", "Index", "Categories", new { area = "" }, new { @class = "nav-link" })</a>
+        <a href="#" class="w3-bar-item w3-button">  @Html.ActionLink("Nhà cung cấp", "Index", "Suppliers", new { area = "" }, new { @class = "nav-link" })</a>
+
+
+        <br><br>
+    </div>
+
+
+
+
+
+    <a href="#" class="w3-bar-item w3-button"> @Html.ActionLink("Sản phẩm", "Index", "Products", new { area = "" }, new { @class = "nav-link" })</a>
+    <a href="#" class="w3-bar-item w3-button"> @Html.ActionLink("Khách hàng", "Index", "Customers", new { area = "" }, new { @class = "nav-link" })</a>
+    <a href="#" class="w3-bar-item w3-button">@Html.ActionLink("Đơn Hàng", "Index", "Orders", new { area = "" }, new { @class = "nav-link" })</a>
+    <a href="#" class="w3-bar-item w3-button">@Html.ActionLink("Sửa Tài Khoản", "Edit", "Users", new { id = Session["Name"] }, new { @class = "btn btn-outline-primary" })</a>
+    <a href="http://localhost:60800/Products/ProductList">
+        <input type="button" class="btn btn-outline-warning" value="Trang chính của khách hàng" />
+    </a>
+</div>
+
+    <!-- Page Content -->
+       <div class="w3-teal">
+        <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+            @Html.ActionLink("ADMIN", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+    @*<div class="main">
+        <div class="container">*@
+
+    <!--<button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">-->
+    @*<span class="navbar-toggler-icon"></span>*@
+    <!--</button>-->
+    @*<div class="collapse navbar-collapse d-flex justify-content-sm-between">*@
+    <!--<ul class="side-nav">-->
+    @*<li>@Html.ActionLink("", "Index", "tblProducts",  new { @class = "image-button",@style="background-image:url('~/Content/image/iconproduct.png')" })</li>*@
+    <!--<li>
+
+        <a href="@Url.Action("Index","Products")">
+            <img src="~/Content/image/iconproduct2.png" />
+        </a>
+        <div class="layout">Sản Phẩm </div>
+    </li>
+    <li>
+
+        <a href="@Url.Action("Index","Suppliers")">
+
+            <img src="~/Content/image/iconsupplier.png" />
+        </a>
+        <div class="layout">Nhà Cung Cấp</div>
+    </li>
+    <li>
+
+
+        <a href="@Url.Action("Index", "Users")">
+
+            <img src="~/Content/image/iconuser.png" />
+        </a>
+        <div class="layout">Người Dùng</div>
+    </li>
+    <li>
+
+        <a href="@Url.Action("Index","Colors")">
+
+            <img src="~/Content/image/iconcolor.png" />
+        </a>
+        <div class="layout">Màu</div>
+    </li>
+    <li>
+
+        <a href="@Url.Action("Index","Customers")">
+            <img src="~/Content/image/iconcustomer.png" />
+        </a>
+        <div class="layout">Khách Hàng</div>
+    </li>
+    <li>
+
+        <a href="@Url.Action("Index","ProDetails")">
+            <img src="~/Content/image/iconinventory.png" />
+        </a>
+        <div class="layout">Chi tiết đơn hàng</div>
+    </li>
+    <li>
+
+        <a href="@Url.Action("Index","Categories")">
+
+            <img src="~/Content/image/iconclassify.png" />
+        </a>
+        <div class="layout">Loại</div>
+    </li>
+    <li>
+
+        <a href="@Url.Action("Index","Orders")">
+
+            <img src="~/Content/image/iconorder.png" />
+        </a>
+        <div class="layout">Đơn Hàng</div>
+    </li>-->
+    @*<li>@Html.ActionLink("Nhà cung cấp", "Index", "tblSupplierProducts", new { area = "" }, new { @class = "nav-link" })</li>*@
+    @*<li>@Html.ActionLink("Người Quản Trị", "Index", "tblUsers", new { area = "" }, new { @class = "nav-link" })</li>*@
+    @*<li>@Html.ActionLink("Phong cách", "Index", "tblStyles", new { area = "" }, new { @class = "nav-link" })</li>*@
+    @*<li>@Html.ActionLink("Khách hàng", "Index", "tblCustumers", new { area = "" }, new { @class = "nav-link" })</li>*@
+    @*<li>@Html.ActionLink("Hàng tồn kho", "Index", "tblDetailBills", new { area = "" }, new { @class = "nav-link" })</li>*@
+
+    @*</ul>
+        </div>
+        </n1>*@
+    @*</nav>*@
+
+    @*</div>*@
+    }
+    else
+    {
+    <button class="btn btn-danger" id="LoginBtn" onclick="window.location.href='@Url.Action("UserLogin","Users")'">Hãy đăng nhập</button>
+    @*<h3 style="text-decoration: none;">@Html.ActionLink("Hãy đăng nhập", "AdminLogin", "Admin", new { @id = "LoginBtn" })</h3>*@
+    <script>
+                        document.getElementById('LoginBtn').onclick = function () {
+                            document.getElementById('RenderBody').style.display = 'Block';
+                            window.location.href = '@Url.Action("UserLogin", "Users")';
+                            };
+
+    </script>
+    }
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

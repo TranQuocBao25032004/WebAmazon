@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebAmazon.Models.Product>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameDecription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.NameCate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProName)
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.ProImage)*@
+            <img src="@Url.Content(item.ProImage)" width="150" height="150" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameDecription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.NameCate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProID })
+        </td>
+    </tr>
+}
+
+</table>

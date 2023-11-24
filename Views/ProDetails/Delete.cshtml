@@ -1,0 +1,95 @@
+﻿@model WebAmazon.Models.ProDetail
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Xóa thông tin chi tiết đơn hàng </h2>
+
+<h3>Bạn có chắc chắn muốn xóa nội dung này không?</h3>
+<div>
+    <h4>ProDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Price)*@
+            <h4>Đơn Giá</h4>
+        </dt>
+
+        <dd>
+            <h5>@Html.DisplayFor(model => model.Price)</h5>
+
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.RemainQuantity)*@
+            <h4>Số lượng tồn kho</h4>
+        </dt>
+
+        <dd>
+            <h5> @Html.DisplayFor(model => model.RemainQuantity)</h5>
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.SoldQuantity)*@
+            <h4>Đã bán </h4>
+        </dt>
+
+        <dd>
+            <h5>@Html.DisplayFor(model => model.SoldQuantity)</h5>
+
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.ViewQuantity)*@
+            <h4>Lượt xem</h4>
+        </dt>
+
+        <dd>
+            <h5> @Html.DisplayFor(model => model.ViewQuantity)</h5>
+
+        </dd>
+
+        <dt>
+            <h4>Màu</h4>
+            @*@Html.DisplayNameFor(model => model.Color.ColorName)*@
+        </dt>
+
+        <dd>
+            <h5> @Html.DisplayFor(model => model.Color.ColorName)</h5>
+
+        </dd>
+
+        <dt>
+            <h4>Tên Sản Phẩm</h4>
+            @*@Html.DisplayNameFor(model => model.Product.ProName)*@
+        </dt>
+
+        <dd>
+            <h5> @Html.DisplayFor(model => model.Product.ProName)</h5>
+
+        </dd>
+
+        <dt>
+            @*@Html.DisplayNameFor(model => model.Supplier.SupName)*@
+            <h4>Nhà cung cấp</h4>
+        </dt>
+
+        <dd>
+            <h5> @Html.DisplayFor(model => model.Supplier.SupName)</h5>
+
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-outline-danger" /> |
+            @Html.ActionLink("Danh Sách", "Index", null, new {@class="btn btn-outline-secondary"})
+        </div>
+    }
+</div>
